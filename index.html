@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>クリア画面</title>
+  <style>
+    body {
+      background-color: #f0f8ff;
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      color: #2e8b57;
+      font-size: 3em;
+    }
+    /* 見えない隠しリンクのスタイル */
+    .secret-link {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      opacity: 0;
+      width: 100px;
+      height: 100px;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 クリアおめでとう！ 🎉</h1>
+  <p>あなたはすべての問題を解きました！</p>
+
+  <!-- 隠しクリックゾーン -->
+  <a href="extra.html" class="secret-link">隠しリンク</a>
+
+  <!-- キーワード入力でジャンプ -->
+  <script>
+    let buffer = '';
+    document.addEventListener('keydown', (e) => {
+      buffer += e.key.toLowerCase();
+      if (buffer.includes("secret")) {
+        window.location.href = "extra.html";
+      }
+      if (buffer.length > 10) buffer = buffer.slice(-10);
+    });
+  </script>
+</body>
+</html>
